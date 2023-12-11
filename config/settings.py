@@ -14,6 +14,7 @@ import os
 from datetime import timedelta
 
 from pathlib import Path
+from urllib.parse import urlsplit
 
 from dotenv import load_dotenv
 
@@ -30,7 +31,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+DOMAIN_NAME = os.getenv('DOMAIN_NAME')
+
+ALLOWED_HOSTS = [urlsplit(DOMAIN_NAME).hostname]
 
 # Application definition
 
